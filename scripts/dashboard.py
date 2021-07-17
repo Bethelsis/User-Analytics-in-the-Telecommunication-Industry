@@ -3,8 +3,6 @@ import pandas as pd
 import mysql.connector
 import numpy as np
 import streamlit as st
-import altair as alt
-from wordcloud import WordCloud
 import plotly.express as px
 from mysql.connector import Error
 import matplotlib.pyplot as plt
@@ -181,18 +179,24 @@ class dashbrd:
 
          
 if __name__ == "__main__":
-    db1 = DBoperations()
+    #db1 = DBoperations()
     #db1.createDB('UserAnalytics')
     #db1.createTables('Final_table')
-    df = pd.read_csv('/home/bethelhem/User-Analytics-in-the-Telecommunication-Industry/Data/final_table.csv')
+    #df = pd.read_csv('/home/bethelhem/User-Analytics-in-the-Telecommunication-Industry/Data/final_table.csv')
     
-    db1.insert_to_table('UserAnalytics', df=df, table_name='Final_table')
+    #db1.insert_to_table('UserAnalytics', df=df, table_name='Final_table')
     #query = "select * from Final_table"
     #df1 = db1.db_execute_fetch(query, dbName="UserAnalytics", rdf=True)
     
     
-   # obj1=dashbrd()
-    #st.set_page_config(page_title="User Analytics in the Telecommunication Industry Dashboard", layout="wide")
-    #st.markdown("<p style='padding:30px;text-align:center; background-color:#000000;color:#00ECB9;font-size:26px;border-radius:10px;'>User Analytics in the Telecommunication Industry Dashboard</p>", unsafe_allow_html=True)
-    #st.markdown("<p style='padding:30px;text-align:center; background-color:#00000;color:#00CCB9;font-size:26px;border-radius:10px;'>Top 5 social media users</p>", unsafe_allow_html=True)
+    #obj1=dashbrd()
+    st.set_page_config(page_title="User Analytics in the Telecommunication Industry Dashboard", layout="wide")
+    st.markdown("<p style='padding:30px;text-align:center; background-color:#000000;color:#00ECB9;font-size:26px;border-radius:10px;'>User Analytics in the Telecommunication Industry Dashboard</p>", unsafe_allow_html=True)
+    st.markdown("<p style='padding:30px; background-color:#00000;color:#00CCB9;font-size:26px;border-radius:10px;'>Piechart of applications</p>", unsafe_allow_html=True)
     #obj1.Top_10_mostEngaged()
+
+    from PIL import Image
+    image = Image.open('/home/bethelhem/Pictures/Screenshot from 2021-07-17 22-04-57.png')
+
+    st.image(image, caption='applications pie chart')
+
